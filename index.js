@@ -28,11 +28,11 @@ app.get('/', function(req, res){
 
 app.post('/', async function (req, res) {
    console.log(req.body)
-   await(await fetch(`https://api.akuari.my.id/simi/simi?query=${req.body.pesan}`)).json()
+   await(await fetch(`https://simsimi.fun/api/v2/?mode=talk&lang=en&message=${req.body.pesan}&filter=false`)).json()
    .then(jsonString => {
       try {
-         console.log(jsonString.respon);
-         pesan[0].pesan = jsonString.respon
+         console.log(jsonString.success);
+         pesan[0].pesan = jsonString.success
          console.log(pesan)
          res.render("form", {
          pesan: pesan
